@@ -1,9 +1,9 @@
 // @ts-nocheck
 import { config as loadEnv } from "dotenv";
-import { fileURLToPath } from "node:url";
+import path from "node:path";
 
 loadEnv({
-	path: fileURLToPath(new URL("../.env", import.meta.url)),
+	path: path.resolve(process.cwd(), ".env"),
 });
 
 export function getRequiredEnv(name: string) {

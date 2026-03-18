@@ -30,7 +30,7 @@ router.get("/:id", async (req, res) => {
 		return res.status(404).json({ error: "Task not found" });
 	}
 
-	res.json(task);
+	return res.json(task);
 });
 
 export default router;
