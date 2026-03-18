@@ -1,5 +1,18 @@
 const API_URL = "http://localhost:4000/api";
 
+async function readErrorMessage(res: Response) {
+	try {
+		const data = await res.json();
+		if (typeof data?.error === "string" && data.error.trim()) {
+			return data.error;
+		}
+	} catch {
+		// Ignore JSON parsing failures and fall back to status text.
+	}
+
+	return `Request failed with status ${res.status}`;
+}
+
 export async function sendChatMessage(text: string) {
 	const messageId = crypto.randomUUID();
 
@@ -15,7 +28,7 @@ export async function sendChatMessage(text: string) {
 	});
 
 	if (!res.ok) {
-		throw new Error("Failed to send message");
+		throw new Error(await readErrorMessage(res));
 	}
 
 	return res.json();
