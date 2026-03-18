@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { z } from "zod";
-import { prisma } from "../prisma";
-import { findProcessedMessage } from "../services/idempotency";
-import { interpretMessage } from "../services/llm";
-import { executeAction } from "../services/taskExecutor";
+import { prisma } from "../prisma.js";
+import { findProcessedMessage } from "../services/idempotency.js";
+import { interpretMessage } from "../services/llm.js";
+import { executeAction } from "../services/taskExecutor.js";
 
 const router = Router();
 

@@ -1,11 +1,11 @@
 // @ts-nocheck
-import "./env";
+import "./env.js";
 import express from "express";
 import cors from "cors";
 
-import chatRoutes from "./routes/chat";
-import taskRoutes from "./routes/tasks";
-import adminRoutes from "./routes/admin";
+import chatRoutes from "./routes/chat.js";
+import taskRoutes from "./routes/tasks.js";
+import adminRoutes from "./routes/admin.js";
 
 const app = express();
 

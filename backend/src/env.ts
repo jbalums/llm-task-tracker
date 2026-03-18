@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { config as loadEnv } from "dotenv";
 import path from "node:path";
 

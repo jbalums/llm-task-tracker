@@ -1,6 +1,6 @@
 import OpenAI from "openai";
-import { LlmActionSchema } from "../types/llmAction";
-import { buildPrompt } from "./promptBuilder";
+import { LlmActionSchema } from "../types/llmAction.js";
+import { buildPrompt } from "./promptBuilder.js";
 
 const client = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,

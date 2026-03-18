@@ -1,6 +1,6 @@
-import { prisma } from "../prisma";
-import { normalizeText } from "../utils/normalize";
-import type { LlmAction } from "../types/llmAction";
+import { prisma } from "../prisma.js";
+import { normalizeText } from "../utils/normalize.js";
+import type { LlmAction } from "../types/llmAction.js";
 
 export async function executeAction(params: {
 	action: LlmAction;
