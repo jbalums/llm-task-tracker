@@ -21,10 +21,10 @@ type Task = {
 };
 
 const quickPrompts = [
-	"Create tasks for onboarding, auth, and billing.",
+	"Create the following task: dashboard page, login page, user profile page.",
 	"Mark the dashboard task as complete.",
-	"Add a deployment checklist to the launch task.",
-	"Turn our roadmap into actionable tasks for this week.",
+	"Add details to login page: set-up forms, validation, and error handling.",
+	"What tasks are still open?",
 ];
 
 export default function ChatPage() {
