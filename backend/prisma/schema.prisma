@@ -11,3 +11,53 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+
+model Task {
+  id              String       @id @default(cuid())
+  title           String
+  normalizedTitle String
+  status          TaskStatus   @default(OPEN)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  completedAt     DateTime?
+  sourceMessageId String?
+  details         TaskDetail[]
+}
+
+model TaskDetail {
+  id              String   @id @default(cuid())
+  taskId          String
+  content         String
+  createdAt       DateTime @default(now())
+  sourceMessageId String?
+  task            Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+}
+
+model ChatMessage {
+  id        String   @id @default(cuid())
+  messageId String   @unique
+  role      ChatRole
+  content   String
+  createdAt DateTime @default(now())
+}
+
+model ProcessedMessage {
+  id              String   @id @default(cuid())
+  messageId       String   @unique
+  rawContent      String
+  normalizedHash  String
+  responseSummary String
+  actionType      String
+  createdAt       DateTime @default(now())
+}
+
+enum TaskStatus {
+  OPEN
+  COMPLETED
+}
+
+enum ChatRole {
+  USER
+  ASSISTANT
+}
