@@ -83,8 +83,18 @@ router.post("/", async (req, res) => {
 		});
 	} catch (error) {
 		console.error(error);
-		return res.status(400).json({
-			error: "Failed to process message",
+
+		if (error instanceof z.ZodError) {
+			return res.status(400).json({
+				error: "Invalid chat request payload.",
+			});
+		}
+
+		return res.status(500).json({
+			error:
+				error instanceof Error
+					? error.message
+					: "Failed to process message.",
 		});
 	}
 });
