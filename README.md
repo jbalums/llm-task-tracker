@@ -4,6 +4,12 @@ This project is a small full-stack task tracker where the main interface is a ch
 
 At a high level, the app is trying to do one thing well: treat the LLM as an interpreter for task intent, while keeping the actual task mutations in regular application code.
 
+## Working Demo APP
+
+Visit Demo App on:
+
+https://llm-task-tracker.joelbaluma.com/
+
 ## Running The App
 
 This repo has two separate apps:
