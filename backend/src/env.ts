@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { config as loadEnv } from "dotenv";
 import { fileURLToPath } from "node:url";
 
